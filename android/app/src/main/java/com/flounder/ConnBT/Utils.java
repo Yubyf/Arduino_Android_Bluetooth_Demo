@@ -11,9 +11,12 @@ public class Utils {
     }
 
     public static String byteArrayToHex(byte[] arr) {
-        StringBuilder builder = new StringBuilder(arr.length * 2);
-        for (byte b : arr) {
-            builder.append(String.format("%02X", b & 0xFF));
+        StringBuilder builder = new StringBuilder();
+        if (arr != null && arr.length > 0) {
+            builder = new StringBuilder(arr.length * 2);
+            for (byte b : arr) {
+                builder.append(String.format("%02X", b & 0xFF));
+            }
         }
         return builder.toString();
     }

@@ -8,6 +8,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.ParcelUuid;
 import android.util.Log;
 
 import java.io.IOException;
@@ -223,6 +224,7 @@ public class BTService {
      * Indicate that the connection attempt failed and notify the UI Activity.
      */
     private void connectionError(String errMsg) {
+        Log.e(TAG, "Connection Error:" + errMsg);
         // Send a failure message back to the Activity
         Message msg = mHandler.obtainMessage(Constants.MESSAGE_TOAST);
         Bundle bundle = new Bundle();
@@ -259,7 +261,7 @@ public class BTService {
         public void run() {
             Log.d(TAG, "Socket begin");
 
-            BluetoothSocket socket;
+            BluetoothSocket socket = null;
 
             // Listen to the server socket if we're not connected
             while (mState != STATE_CONNECTED) {
@@ -322,6 +324,11 @@ public class BTService {
             // Get a BluetoothSocket for a connection with the
             // given BluetoothDevice
             try {
+//                device.fetchUuidsWithSdp();
+//                ParcelUuid[] uuids = device.getUuids();
+//                for (ParcelUuid u : uuids) {
+//                    Log.d(TAG, u.getUuid().toString());
+//                }
                 tmp = device.createRfcommSocketToServiceRecord(MY_UUID);
             } catch (IOException e) {
                 Log.e(TAG, "Socket create() failed", e);
@@ -333,6 +340,7 @@ public class BTService {
             try {
                 mmSocket.connect();
             } catch (IOException e) {
+                e.printStackTrace();
                 try {
                     mmSocket.close();
                 } catch (IOException e1) {
@@ -390,7 +398,7 @@ public class BTService {
 
         public void run() {
             Log.d(TAG, "BEGIN mConnectedThread");
-            byte[] buffer = new byte[32];
+            byte[] buffer = new byte[512];
             byte[] ret = null;
 
             // Keep listening to the inputStream while connected
@@ -398,6 +406,8 @@ public class BTService {
                 try {
                     // Read from the InputStream
                     int bytes = mmInStream.read(buffer);
+                    Log.e(TAG, "length: " + bytes);
+                    Log.e(TAG, "data: " + Utils.byteArrayToHex(buffer));
                     for (int i = 0; i < bytes; i++) {
                         if ((buffer[i] & 0xFF) == 255) {
                             ret = Arrays.copyOfRange(buffer, 0, i + 1);

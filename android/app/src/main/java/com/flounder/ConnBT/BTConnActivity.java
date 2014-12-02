@@ -323,7 +323,7 @@ public class BTConnActivity extends Activity {
                                Toast.makeText(BTConnActivity.this,
                                        R.string.dialog_invalid_value, Toast.LENGTH_SHORT).show();
                            } else {
-                               byte[] tmp = {(byte) high, (byte) low, (byte) 0xFF};
+                               byte[] tmp = {0x00, (byte) high, 0x00, (byte) low, (byte) 0xFF};
                                mBTService.write(Utils.combineByteArray(Protocol.REQ_SET_HUMIDITY, tmp));
                            }
                        }
