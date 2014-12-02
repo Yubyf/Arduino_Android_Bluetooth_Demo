@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">智能浇花</string>
+
+    <!--Menu Items-->
+    <string name="get_humidity">湿度信息</string>
+    <string name="set_humidity">设定湿度</string>
+    <string name="start_watering">开始浇花</string>
+    <string name="stop_watering">停止浇花</string>
+    <string name="about">关于</string>
+
+    <!--Text Messages-->
+    <string name="text_error_bt">蓝牙异常</string>
+    <string name="text_enable_bt">请开启蓝牙，并确保蓝牙连接已建立</string>
+    <string name="text_conn_bt">请确保蓝牙连接已建立</string>
+    <string name="text_connected_device">已连接设备：</string>
+    <string name="text_error_conn_failed">连接创建失败</string>
+    <string name="text_error_conn_lost">连接丢失</string>
+    <string name="text_about">Android-Arduino蓝牙通信Demo App</string>
+
+    <string name="text_success_set_humidity">湿度阈值设定成功！</string>
+    <string name="text_success_start_watering">启动浇花请求成功！</string>
+    <string name="text_success_stop_watering">停止浇花请求成功！</string>
+    <string name="text_success_get_humidity">获取湿度阈值成功（当前/高阈值/低阈值）：</string>
+
+    <!--Dialog Messages-->
+    <string name="dialog_title_set_humidity">请设定土壤湿度高、低阈值(0~100)</string>
+    <string name="dialog_et_high_humidity">高阈值</string>
+    <string name="dialog_et_low_humidity">低阈值</string>
+    <string name="dialog_invalid_value">高低阈值在范围0~100之间，且高阈值必须大于低阈值</string>
+
+    <!--Button-->
+    <string name="btn_ok">确定</string>
+    <string name="btn_cancel">取消</string>
+
+</resources>

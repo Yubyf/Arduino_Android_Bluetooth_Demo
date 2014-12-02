@@ -1,0 +1,33 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".BTConnActivity">
+    <item
+        android:id="@+id/action_get_humidity"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/get_humidity" />
+    <item
+        android:id="@+id/action_set_humidity"
+        android:orderInCategory="200"
+        android:showAsAction="never"
+        android:title="@string/set_humidity" />
+
+    <item
+        android:id="@+id/action_start_watering"
+        android:orderInCategory="300"
+        android:showAsAction="never"
+        android:title="@string/start_watering" />
+
+    <item
+        android:id="@+id/action_stop_humidity"
+        android:orderInCategory="400"
+        android:showAsAction="never"
+        android:title="@string/stop_watering" />
+
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="500"
+        android:showAsAction="never"
+        android:title="@string/about" />
+
+</menu>

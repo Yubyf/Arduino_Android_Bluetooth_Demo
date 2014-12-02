@@ -1,0 +1,7 @@
+!android/
+
+android/*
+!android/app/
+
+android/app/*
+!android/app/src/
